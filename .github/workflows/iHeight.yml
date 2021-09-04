@@ -1,0 +1,20 @@
+#include <Array.au3> ; Required only for _ArrayDisplay().
+#include <GUIConstantsEx.au3>
+#include <GUIListView.au3>
+#include <WindowsConstants.au3>
+
+Example()
+
+Func Example()
+    Local $iWidth = 600, $iHeight = 400, $iListView = 0
+    Local $hGUI = GUICreate('_GUICtrlListView_CreateArray()', $iWidth, $iHeight, -1, -1, BitOR($GUI_SS_DEFAULT_GUI, $WS_MAXIMIZEBOX, $WS_SIZEBOX))
+
+    _CreateListView($hGUI, $iListView)
+
+    Local $iGetArray = GUICtrlCreateButton('Get Array', $iWidth - 90, $iHeight - 28, 85, 25)
+    GUICtrlSetResizing(-1, $GUI_DOCKRIGHT + $GUI_DOCKSIZE + $GUI_DOCKBOTTOM)
+
+    Local $iRefresh = GUICtrlCreateButton('Refresh', $iWidth - 180, $iHeight - 28, 85, 25)
+    GUICtrlSetResizing(-1, $GUI_DOCKRIGHT + $GUI_DOCKSIZE + $GUI_DOCKBOTTOM)
+
+    GUISetState(@SW_SHOW, $hGUI)
